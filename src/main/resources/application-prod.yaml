@@ -1,0 +1,20 @@
+server:
+  port: 8080 # 충돌 문제 시 수정
+spring:
+  # JPA
+  jpa:
+    hibernate:
+      # ddl-auto: create # 배포 시는 none 또는 validate 추천
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+        show_sql: true
+        format_sql: true
+  # 데이터소스
+  datasource:
+
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
